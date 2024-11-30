@@ -39,8 +39,34 @@ async function name1() {
   // console.log(state);
 
   // fs.readdir
-  const dirname = path.resolve(__dirname, "../code");
-  const paths = await fs.promises.readdir(dirname);
-  console.log(paths);
+  // const dirname = path.resolve(__dirname, "../code");
+  // const paths = await fs.promises.readdir(dirname);
+  // console.log(paths);
+
+  // fs.mkdir
+  const dirname = path.resolve(__dirname, "./test1");
+  // fs.promises.mkdir(dirname);
+  // fs.promises.writeFile(dirname + "/a.js", `const a  = 'luckySnail'; \n console.log(a)`);
+
+  // 判断文件是否存在
+  fs.promises
+    .access(dirname + "/a.js")
+    .then(() => {
+      console.log("文件存在");
+      // 判断是否是文件
+      const filename = dirname + "/a.js";
+      fs.promises.stat(filename).then((res) => {
+        if (res.isFile()) {
+          fs.promises.readFile(filename, { encoding: "utf-8" }).then((res) => {
+            console.log("文件内容是：" + res);
+          });
+        } else {
+          console.log("不是文件");
+        }
+      });
+    })
+    .catch(() => {
+      console.log("文件不存在");
+    });
 }
 name1();
