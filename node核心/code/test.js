@@ -1,0 +1,5 @@
+console.log('luckySnail use fs writeFile API !')
+console.log('luckySnail use fs writeFile API !')
+console.log('luckySnail use fs writeFile API !')
+console.log('luckySnail use fs writeFile API !')
+console.log('luckySnail use fs writeFile API !')
